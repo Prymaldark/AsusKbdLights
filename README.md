@@ -5,3 +5,4 @@ Invocation:
     java -cp /loc/at/ion AsusKbdLights <up|down>
 Suggest adding permission via sudoers to allow activating without a password.
 Automatic initialization function still in testing.
+Additional feature may be made available via AsusKbdLightsExt.

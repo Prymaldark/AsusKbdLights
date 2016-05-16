@@ -1,11 +1,10 @@
 /*
-	AsusKbdLights v0.0.1
+	AsusKbdLights v1.0.0
 	by Prymal'Dark
 	A simple utility to manipulate keyboard backlight intensity.
 	Usage: java -cp /loc/ati/on AsusKbdLights <up|down>
 	Suggested use by linking to XF86KbdBrightness{Up,Down} keys.
 	Suggested to add to sudoers NOPASSWD option due to the system files.
-	Automatic initialization still in testing.
 	Additional features will be made available in AsusKbdLightsExt.
 */
 
@@ -60,6 +59,7 @@ public class AsusKbdLights
 		case "0x0":
 		case "0x00000000":
 			Initialize();
+			break;
 		case "0x00000080":
 			level = 80;
 			if (op) Increase(level);
@@ -121,11 +121,11 @@ public class AsusKbdLights
 	public static void Initialize() throws IOException
 	{
 		try {
-			PrintWriter write_dev_id = new PrintWriter(dev_id);
+			write_dev_id = new PrintWriter(dev_id);
 		} catch (FileNotFoundException fnfe) {
 			System.out.println(fnfe);
 		}
-		System.out.println("Initialization Begun");
+//		System.out.println("Initialization Begun");
 		write_dev_id.printf("0x00050021");		//Set proper value in dev_id
 		write_ctrl_param.printf("0x82");		//Initialize to Medium brightness
 		System.out.println("Initialization Completed");
